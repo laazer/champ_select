@@ -1,0 +1,28 @@
+package com.laazer.lol;
+import java.util.List;
+import com.laazer.common.Box;
+
+public class LoLChampSpell implements LoLObject{
+    List<LoLImage> altImages;
+    List<Double> cooldown;
+    String coolDownBurn;
+    String costBurn;
+    String costType;
+    String description;
+    List<List<Integer>> effect;
+    List<String> effectBurn;
+    LoLImage image;
+    String key;
+    LoLLevelTip levelTip;
+    int maxrank;
+    String name;
+    Box<Integer> range;
+    String rangeBurn;
+    String resource;
+    String sanitizedDescription;
+    String sanitizedTooltip;
+    String tooltip;
+    List<LoLSpellVars> vars;
+    
+}
+

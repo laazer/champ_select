@@ -1,4 +1,6 @@
-package com.laazer.common.json;
+package com.laazer.common;
+
+import com.json.*;
 
 public class JsonFactory {
 
