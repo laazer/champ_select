@@ -1,4 +1,6 @@
-package com.laazer.lol;
+package com.laazer.lol.champion;
+
+import com.laazer.lol.LoLObject;
 
 public class LoLSkin implements LoLObject{
     int id;

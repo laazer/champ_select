@@ -1,7 +1,9 @@
-package com.laazer.lol;
-import java.util.List;
+package com.laazer.lol.champion;
 
-public class Champion implements LoLObject{
+import java.util.List;
+import com.laazer.lol.LoLObject;
+
+public class LoLChampion implements LoLObject{
     int id;
     boolean freeToPlay;
     String key;

@@ -1,6 +1,7 @@
-package com.laazer.lol;
+package com.laazer.lol.champion;
 import java.util.List;
 import com.laazer.common.Box;
+import com.laazer.lol.LoLObject;
 
 public class LoLChampSpell implements LoLObject{
     List<LoLImage> altImages;

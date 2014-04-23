@@ -1,5 +1,7 @@
-package com.laazer.lol;
+package com.laazer.lol.champion;
 import java.util.List;
+
+import com.laazer.lol.LoLObject;
 
 public class LoLRecommended implements LoLObject{
     List<LoLBlock> blocks;
