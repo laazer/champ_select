@@ -1,6 +1,8 @@
 package com.laazer.lol.champion;
 import java.util.List;
 
+import org.json.JSONObject;
+
 import com.laazer.lol.LoLObject;
 
 public class LoLRecommended implements LoLObject{
@@ -11,4 +13,7 @@ public class LoLRecommended implements LoLObject{
     boolean priority;
     String tutke;
     String type;
+    public LoLRecommended(JSONObject value) {
+        // TODO Auto-generated constructor stub
+    }
 }
