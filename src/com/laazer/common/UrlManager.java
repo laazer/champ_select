@@ -30,4 +30,12 @@ public class UrlManager {
         return result;
 
     }
+    
+    //TODO make url builder
+    public static String urlBuilder(String version, String region, String action, String [] params) {
+        String result = "https://prod.api.pvp.net/api/lol/"+region+"/"+version+"/";
+        
+        
+        return result;
+    }
 }
