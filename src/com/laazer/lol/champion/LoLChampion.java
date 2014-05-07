@@ -11,9 +11,11 @@ import com.laazer.common.ListUtils;
 import com.laazer.common.UrlManager;
 import com.laazer.lol.LoLObject;
 import com.laazer.lol.LoLUtils;
+import com.laazer.lol.Region;
+import java.lang.Class;
 
-public class LoLChampion implements LoLObject{
-    final static String URL = LoLObject.URL + "static-data/NA/v1.2/champion/";
+public class LoLChampion extends LoLObject{
+    final static String LocURL = LoLObject.URL + "static-data/"+ Region.NA +"/v1.2/champion/?";
     int id;
     boolean freeToPlay;
     String key, name, title, blurb, lore, partype;;
@@ -40,16 +42,18 @@ public class LoLChampion implements LoLObject{
         this.passive = new LoLPassive(obj.getJSONObject("passive"));
         this.partype = obj.getString("partype");
         this.skins = JSONUtils.mappedList(obj.getJSONArray("skins"), LoLUtils.toSkin);
-        this.spells = obj.getJSONObject("spells");
-        this.stats = obj.getJSONObject("stats");
-        this.tags = obj.getJSONArray("tags");
+        this.spells = JSONUtils.mappedList(obj.getJSONObject("spells"), LoLUtils.toSpell);
+        this.stats = new LoLStats(obj.getJSONObject("stats"));
+        this.tags = JSONUtils.mappedList(obj.getJSONArray("tags"), JSONUtils.toString);
     }
 
     private JSONObject generateJson() {
+        //TODO make url an input
         JSONParser parser = new JSONParser();
-        JSONObject jobj = (JSONObject) parser.parseJson(UrlManager.executeGet(URL + this.id));
+        JSONObject jobj = (JSONObject) parser.parseJson(UrlManager.executeGet(LocURL + this.id + "champData=all&" + LoLObject.KEY));
         return jobj;
     }
     
+  
     
 }

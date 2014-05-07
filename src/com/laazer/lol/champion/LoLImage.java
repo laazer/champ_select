@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import com.laazer.lol.LoLObject;
 
-public class LoLImage implements LoLObject {
+public class LoLImage extends LoLObject {
     String full;
     String group;
     String sprite;

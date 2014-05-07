@@ -1,8 +1,11 @@
 package com.laazer.lol.champion;
 
+import org.json.JSONObject;
+import com.google.gson.*;
+
 import com.laazer.lol.LoLObject;
 
-public class LoLStats implements LoLObject{
+public class LoLStats extends LoLObject{
     Double armor, armorPerLevel;
     Double attackDamage, attackDamagePerLevel;
     Double attackRange;
@@ -12,4 +15,9 @@ public class LoLStats implements LoLObject{
     Double moveSpeed;
     Double mp, mpPerLevel, mpRegen, mpRegenPerLevel;
     Double spellBlock, spellBlockPerLevel;
+    public LoLStats(JSONObject jsonObject) {
+       Gson gson = new Gson();
+       gson.fromJson(jsonObject.toString(), this.getClass());
+    }
+    
 }

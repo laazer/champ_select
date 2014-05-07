@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 import com.laazer.lol.LoLObject;
 
-public class LoLPassive implements LoLObject{
+public class LoLPassive extends LoLObject{
     String description;
     LoLImage image;
     String name;

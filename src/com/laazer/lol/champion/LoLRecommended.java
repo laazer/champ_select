@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import com.laazer.lol.LoLObject;
 
-public class LoLRecommended implements LoLObject{
+public class LoLRecommended extends LoLObject{
     List<LoLBlock> blocks;
     String champion;
     String map;
