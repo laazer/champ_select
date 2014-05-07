@@ -36,14 +36,14 @@ public class LoLChampion extends LoLObject{
         this.title = obj.getString("title"); this.blurb = obj.getString("blurb"); 
         this.allyTips = JSONUtils.mappedList(obj.getJSONArray("allytips"), JSONUtils.toString);
         this.enemyTips = JSONUtils.mappedList(obj.getJSONArray("enemytips"), JSONUtils.toString);
-        this.image = new LoLImage(obj.getJSONObject("image")); 
+        this.image = new LoLImage().genImage(obj.getJSONObject("image")); 
         this.lore = obj.getString("lore");
         this.recommended = JSONUtils.mappedList(obj.getJSONArray("recommended"), LoLUtils.toRecommended);
         this.passive = new LoLPassive(obj.getJSONObject("passive"));
         this.partype = obj.getString("partype");
         this.skins = JSONUtils.mappedList(obj.getJSONArray("skins"), LoLUtils.toSkin);
-        this.spells = JSONUtils.mappedList(obj.getJSONObject("spells"), LoLUtils.toSpell);
-        this.stats = new LoLStats(obj.getJSONObject("stats"));
+        this.spells = JSONUtils.mappedList(obj.getJSONArray("spells"), LoLUtils.toSpell);
+        this.stats = new LoLStats().genLoLStats(obj.getJSONObject("stats"));
         this.tags = JSONUtils.mappedList(obj.getJSONArray("tags"), JSONUtils.toString);
     }
 

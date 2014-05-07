@@ -3,6 +3,7 @@ package com.laazer.lol.champion;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
 import com.laazer.lol.LoLObject;
 
 public class LoLImage extends LoLObject {
@@ -14,12 +15,8 @@ public class LoLImage extends LoLObject {
     int x;
     int y;
     
-    public LoLImage(JSONObject jsonObject) throws JSONException {
-        this.full = jsonObject.getString("full");
-        this.group = jsonObject.getString("group");
-        this.sprite = jsonObject.getString("sprite");
-        this.h = jsonObject.getInt("h"); this.w = jsonObject.getInt("w");
-        this.x = jsonObject.getInt("x"); this.y = jsonObject.getInt("y");
+    public LoLImage genImage(JSONObject jobj) {
+        Gson gson = new Gson();
+        return gson.fromJson(jobj.toString(), this.getClass());
     }
-
 }

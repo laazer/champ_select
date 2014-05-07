@@ -15,9 +15,10 @@ public class LoLStats extends LoLObject{
     Double moveSpeed;
     Double mp, mpPerLevel, mpRegen, mpRegenPerLevel;
     Double spellBlock, spellBlockPerLevel;
-    public LoLStats(JSONObject jsonObject) {
-       Gson gson = new Gson();
-       gson.fromJson(jsonObject.toString(), this.getClass());
-    }
+    public LoLStats() {}
     
+    public LoLStats genLoLStats(JSONObject jobj) {
+        Gson gson = new Gson();
+        return gson.fromJson(jobj.toString(), this.getClass());
+    }
 }
