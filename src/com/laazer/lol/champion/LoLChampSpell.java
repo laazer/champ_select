@@ -3,10 +3,11 @@ import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.laazer.common.Box;
+import com.laazer.common.Functions;
 import com.laazer.common.JSONUtils;
 import com.laazer.lol.LoLObject;
+import com.laazer.common.Function;
 import com.laazer.lol.LoLUtils;
 
 public class LoLChampSpell extends LoLObject{
@@ -36,6 +37,7 @@ public class LoLChampSpell extends LoLObject{
     public LoLChampSpell genChampSpell(JSONObject obj) throws JSONException {
         LoLChampSpell cs = new LoLChampSpell();
         cs.altImages = JSONUtils.mappedList(obj.getJSONArray("altimages"), LoLUtils.toImage);
+        cs.cooldown = JSONUtils.mappedList(obj.getJSONArray("cooldown"), Functions.toDouble);
         return cs;
         
     }
