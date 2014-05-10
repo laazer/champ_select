@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import com.google.gson.Gson;
 import com.json.parsers.*;
 import com.laazer.common.Function;
+import com.laazer.common.Functions;
 import com.laazer.common.JSONUtils;
 import com.laazer.common.ListUtils;
 import com.laazer.common.UrlManager;
@@ -46,8 +47,8 @@ public class LoLChampion extends LoLObject{
         champ.freeToPlay = obj.getBoolean("freetoplay");
         champ.key = obj.getString("key"); this.name = obj.getString("name");
         champ.title = obj.getString("title"); this.blurb = obj.getString("blurb"); 
-        champ.allyTips = JSONUtils.mappedList(obj.getJSONArray("allytips"), JSONUtils.toString);
-        champ.enemyTips = JSONUtils.mappedList(obj.getJSONArray("enemytips"), JSONUtils.toString);
+        champ.allyTips = JSONUtils.mappedList(obj.getJSONArray("allytips"), Functions.toString);
+        champ.enemyTips = JSONUtils.mappedList(obj.getJSONArray("enemytips"), Functions.toString);
         champ.image = new LoLImage().genImage(obj.getJSONObject("image")); 
         champ.lore = obj.getString("lore");
         champ.recommended = JSONUtils.mappedList(obj.getJSONArray("recommended"), LoLUtils.toRecommended);
@@ -56,7 +57,7 @@ public class LoLChampion extends LoLObject{
         champ.skins = JSONUtils.mappedList(obj.getJSONArray("skins"), LoLUtils.toSkin);
         champ.spells = JSONUtils.mappedList(obj.getJSONArray("spells"), LoLUtils.toChampSpell);
         champ.stats = new LoLStats().genLoLStats(obj.getJSONObject("stats"));
-        champ.tags = JSONUtils.mappedList(obj.getJSONArray("tags"), JSONUtils.toString);
+        champ.tags = JSONUtils.mappedList(obj.getJSONArray("tags"), Functions.toString);
         return champ;
     }
     

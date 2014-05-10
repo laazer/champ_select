@@ -38,6 +38,8 @@ public class LoLChampSpell extends LoLObject{
         LoLChampSpell cs = new LoLChampSpell();
         cs.altImages = JSONUtils.mappedList(obj.getJSONArray("altimages"), LoLUtils.toImage);
         cs.cooldown = JSONUtils.mappedList(obj.getJSONArray("cooldown"), Functions.toDouble);
+        cs.coolDownBurn = obj.getString("cooldownburn");
+        cs.costBurn = obj.getString("costburn");
         return cs;
         
     }
