@@ -13,7 +13,7 @@ import com.json.parsers.JSONParser;
 
 public class JSONUtils {
     
-    public static Function<Object, JSONObject> toJSONObject = new ToJSONObject();
+    public static UniFunction<Object, JSONObject> toJSONObject = new ToJSONObject();
     
     public static List<Object> jArrayToList(JSONArray jarray) throws JSONException {
         List<Object> jlist = new ArrayList<Object>();
@@ -23,11 +23,11 @@ public class JSONUtils {
         return jlist;        
     }
     
-    public static <R> List<R> mappedList(JSONArray jarray, Function<Object, R> f) throws JSONException {
+    public static <R> List<R> mappedList(JSONArray jarray, UniFunction<Object, R> f) throws JSONException {
         return ListUtils.map(JSONUtils.jArrayToList(jarray), f);
     }
     
-    private static class ToJSONObject implements Function<Object, JSONObject> {
+    private static class ToJSONObject implements UniFunction<Object, JSONObject> {
         @Override
         public JSONObject apply(Object value) {
             return (JSONObject) value;

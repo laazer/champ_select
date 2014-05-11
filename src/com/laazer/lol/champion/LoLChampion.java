@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import com.google.gson.Gson;
 import com.json.parsers.*;
-import com.laazer.common.Function;
+import com.laazer.common.UniFunction;
 import com.laazer.common.Functions;
 import com.laazer.common.JSONUtils;
 import com.laazer.common.ListUtils;

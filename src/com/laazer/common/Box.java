@@ -10,7 +10,7 @@ package com.laazer.common;
 public abstract class Box <T>{
     public boolean isFull(){ return false;}
     public boolean isEmpty(){ return true;}
-    public <B> Box<B> map(Function<T, B> f){return Box.empty();}
+    public <B> Box<B> map(UniFunction<T, B> f){return Box.empty();}
     public T get() {
         if(this.isEmpty()) {
             throw new NullPointerException();
@@ -43,7 +43,7 @@ class Full<T> extends Box<T> {
     T value;
     public Full(T value) {this.value = value;}
     public boolean isFull() {return true;}
-    public <B> Box<B> map(Function<T, B> f) {
+    public <B> Box<B> map(UniFunction<T, B> f) {
         return new Full<B>(f.apply(this.value));
     }
     public T get(){return this.value;}

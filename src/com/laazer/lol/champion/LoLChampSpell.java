@@ -6,8 +6,9 @@ import org.json.JSONObject;
 import com.laazer.common.Box;
 import com.laazer.common.Functions;
 import com.laazer.common.JSONUtils;
+import com.laazer.common.ListUtils;
 import com.laazer.lol.LoLObject;
-import com.laazer.common.Function;
+import com.laazer.common.UniFunction;
 import com.laazer.lol.LoLUtils;
 
 public class LoLChampSpell extends LoLObject{
@@ -40,6 +41,8 @@ public class LoLChampSpell extends LoLObject{
         cs.cooldown = JSONUtils.mappedList(obj.getJSONArray("cooldown"), Functions.toDouble);
         cs.coolDownBurn = obj.getString("cooldownburn");
         cs.costBurn = obj.getString("costburn");
+        cs.description = obj.getString("description");
+        cs.effect = JSONUtils.mappedList(obj.getJSONArray("effect"), ListUtils.toList);
         return cs;
         
     }
