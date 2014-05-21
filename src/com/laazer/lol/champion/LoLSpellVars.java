@@ -15,6 +15,4 @@ public class LoLSpellVars extends LoLObject{
         return gson.fromJson(jobj.toString(), this.getClass());
     }
     
-    protected boolean isSpellVars(){return true;}
-    protected LoLSpellVars toSpellVars() {return this;}
 }

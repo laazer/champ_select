@@ -13,6 +13,7 @@ public class LoLUtils extends LoLObject{
     public static UniFunction<Object, LoLSpellVars> toSpellVar = new ToSpellVars();
     public static UniFunction<Object, LoLChampSpell> toChampSpell = new ToChampSpell();
     public static UniFunction<Object, LoLImage> toImage = new ToImage();
+    public static UniFunction<Object, LoLBlockItem> toBlockItem = new ToBlockItem();
     
     private static class ToRecommended implements UniFunction<Object, LoLRecommended> {
         public LoLRecommended apply(Object value) {
@@ -42,6 +43,13 @@ public class LoLUtils extends LoLObject{
         public LoLImage apply(Object value) {
             return new LoLImage().genImage(JSONUtils.toJSONObject.apply(value));
         }
+    }
+    
+    private static class ToBlockItem implements UniFunction<Object, LoLBlockItem> {
+        public LoLBlockItem apply(Object value) {
+            return new LoLBlockItem().genBlockItem(JSONUtils.toJSONObject.apply(value));
+        }
+        
     }
     
 }

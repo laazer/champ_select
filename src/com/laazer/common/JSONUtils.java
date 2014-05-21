@@ -6,7 +6,6 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.google.gson.Gson;
 import com.json.*;
 import com.json.parsers.JSONParser;
@@ -32,6 +31,16 @@ public class JSONUtils {
         public JSONObject apply(Object value) {
             return (JSONObject) value;
         }
+    }
+
+    public static <T> Box<T> safeUnpack(JSONObject jobj, String name, UniFunction<Object, T> f) {
+        // TODO Auto-generated method stub
+        try {
+            return new Full(f.apply((Object) jobj.get(name)));
+        }catch(Exception e) {
+            return Box.EMPTY;
+        }
+        
     }
     
 }

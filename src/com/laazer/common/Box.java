@@ -10,6 +10,7 @@ package com.laazer.common;
 public abstract class Box <T>{
     public boolean isFull(){ return false;}
     public boolean isEmpty(){ return true;}
+    public static Box EMPTY = Box.empty();
     public <B> Box<B> map(UniFunction<T, B> f){return Box.empty();}
     public T get() {
         if(this.isEmpty()) {
@@ -34,13 +35,13 @@ public abstract class Box <T>{
         if(this.isFull()) return this.get();
         else return t;
     }
-    public static Box empty() {
+    private static Box empty() {
         return new Empty();
     }
 }
 
 class Full<T> extends Box<T> {
-    T value;
+    private T value;
     public Full(T value) {this.value = value;}
     public boolean isFull() {return true;}
     public <B> Box<B> map(UniFunction<T, B> f) {

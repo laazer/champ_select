@@ -30,6 +30,15 @@ public class ListUtils {
         }
     }
     
+    
+    private static class ToSame<T> implements UniFunction<T, T> {
+        @Override
+        public T apply(T value) {
+            return value;
+        }
+        
+    }
+    
     public static UniFunction<Object, List<Object>> toList = new ToList();
     private static class ToList implements UniFunction<Object, List<Object>> {
         @Override
@@ -39,4 +48,19 @@ public class ListUtils {
         
     }
     
+    public static UniFunction<Object, List<String>> toStringList = new ToStringList();
+    private static class ToStringList implements UniFunction<Object, List<String>> {
+        @Override
+        public List<String> apply(Object value) {
+            return ListUtils.map(ListUtils.toList.apply(value), Functions.toString);
+        }
+    }
+    
+    public static UniFunction<Object, List<Integer>> toIntList = new ToIntList();
+    private static class ToIntList implements UniFunction<Object, List<Integer>> {
+        @Override
+        public List<Integer> apply(Object value) {
+            return ListUtils.map(ListUtils.toList.apply(value), Functions.toInt);
+        }
+    }
 }
